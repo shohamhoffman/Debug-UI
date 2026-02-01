@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCart - Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">🛒 ShopCart</h1>
+            <nav class="nav">
+                <a href="#">Products</a>
+                <a href="#">Cart (2)</a>
+                <a href="#">Account</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="checkout-page">
+        <div class="checkout-container">
+            <section class="order-summary">
+                <h2>Order Summary</h2>
+                
+                <div class="cart-items" id="cart-items">
+                    <div class="cart-item" data-index="0" data-price="149.99">
+                        <img src="https://via.placeholder.com/80" alt="Product">
+                        <div class="item-details">
+                            <h3>Wireless Headphones</h3>
+                            <p class="item-price">$149.99</p>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn minus" onclick="changeQty(0, -1)">−</button>
+                            <span class="item-qty" data-index="0">1</span>
+                            <button class="qty-btn plus" onclick="changeQty(0, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(0)">✕</button>
+                    </div>
+                    
+                    <div class="cart-item" data-index="1" data-price="29.99">
+                        <img src="https://via.placeholder.com/80" alt="Product">
+                        <div class="item-details">
+                            <h3>Phone Case</h3>
+                            <p class="item-price">$29.99</p>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn minus" onclick="changeQty(1, -1)">−</button>
+                            <span class="item-qty" data-index="1">1</span>
+                            <button class="qty-btn plus" onclick="changeQty(1, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(1)">✕</button>
+                    </div>
+                    
+                    <div class="cart-item" data-index="2" data-price="79.99">
+                        <img src="https://via.placeholder.com/80" alt="Product">
+                        <div class="item-details">
+                            <h3>USB-C Cable</h3>
+                            <p class="item-price">$79.99</p>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn minus" onclick="changeQty(2, -1)">−</button>
+                            <span class="item-qty" data-index="2">1</span>
+                            <button class="qty-btn plus" onclick="changeQty(2, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(2)">✕</button>
+                    </div>
+                </div>
+                
+                <div class="order-total">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$259.97</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping</span>
+                        <span>$9.99</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>Total</span>
+                        <span id="total">$269.96</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="payment-section">
+                <h2>Payment Details</h2>
+                
+                <form id="checkout-form" onsubmit="return handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" value="4242 4242 4242 4242" readonly>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Expiry</label>
+                            <input type="text" id="expiry" value="12/28" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" value="123" readonly>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="place-order-btn" class="place-order-btn">
+                        Place Order - $189.97
+                    </button>
+                </form>
+            </section>
+        </div>
+        
+        <!-- Success message - BUG: appears behind header due to z-index issue -->
+        <div id="success-message" class="success-message">
+            <div class="success-content">
+                <span class="success-icon">✅</span>
+                <h2>Order Placed!</h2>
+                <p>Order #38492 confirmed</p>
+                <button onclick="closeSuccess()" class="close-btn">Continue</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>

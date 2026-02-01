@@ -1,0 +1,22 @@
+{
+  "name": "demo-ui-debugging",
+  "version": "1.0.0",
+  "description": "Demo: Debugging invisible UI bugs with GitHub Copilot Skills and Custom Agents",
+  "scripts": {
+    "serve": "npx serve sample-app -p 3001",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^25.1.0",
+    "serve": "^14.2.0"
+  },
+  "keywords": [
+    "copilot",
+    "skills",
+    "agents",
+    "ui-testing",
+    "playwright"
+  ]
+}
