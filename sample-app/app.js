@@ -18,9 +18,9 @@
 
 // Cart state
 let cartItems = [
-    { name: 'Wireless Headphones', price: 149.99, qty: 1 },
-    { name: 'Phone Case', price: 29.99, qty: 1 },
-    { name: 'USB-C Cable', price: 79.99, qty: 1 }
+    { name: 'Wireless Headphones', price: 149.99, qty: 1, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&h=80&fit=crop' },
+    { name: 'Phone Case', price: 29.99, qty: 1, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=80&h=80&fit=crop' },
+    { name: 'USB-C Cable', price: 79.99, qty: 1, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=80&fit=crop' }
 ];
 
 /**
@@ -73,7 +73,7 @@ function updateUI() {
         itemEl.dataset.index = index;
         itemEl.dataset.price = item.price;
         itemEl.innerHTML = `
-            <img src="https://via.placeholder.com/80" alt="Product">
+            <img src="${item.image}" alt="${item.name}">
             <div class="item-details">
                 <h3>${item.name}</h3>
                 <p class="item-price">$${item.price.toFixed(2)}</p>
